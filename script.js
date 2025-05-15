@@ -8,7 +8,7 @@ function validateCedula() {
     }
 
     // Cambia https:// a http://
-    fetch(`http://api-validar-cedula.onrender.com/api/validate?cedula=${cedula}`)
+    fetch(`https://api-validar-cedula.onrender.com/api/validate?cedula=${cedula}`)
         .then(response => {
             if (!response.ok) {
                 throw new Error('Error en la red');
