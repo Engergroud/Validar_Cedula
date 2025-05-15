@@ -16,11 +16,13 @@ function validateCedula() {
             return response.json();
         })
         .then(data => {
-            if (data.isValid) {
-                resultDiv.textContent = `La cédula ${data.cedula} es válida.`;
-            } else {
-                resultDiv.textContent = `La cédula ${data.cedula} no es válida.`;
-            }
+        if (data.isValid) {
+            resultDiv.textContent = `La cédula ${data.cedula} es válida.`;
+        } else {
+            // Mostrar el mensaje de error específico si está disponible
+            const errorMessage = data.error || 'La cédula no es válida.';
+            resultDiv.textContent = `La cédula ${data.cedula} no es válida. ${errorMessage}`;
+        }
         })
         .catch(error => {
             console.error('Error:', error);
