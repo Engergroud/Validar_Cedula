@@ -17,7 +17,7 @@ function validateCedula() {
         })
         .then(data => {
         if (data.isValid) {
-            resultDiv.textContent = `La cédula ${data.cedula} es válida.`;
+            resultDiv.textContent = data.message || 'La cédula es válida.';
         } else {
             // Mostrar el mensaje de error específico si está disponible
             const errorMessage = data.error || 'La cédula no es válida.';
